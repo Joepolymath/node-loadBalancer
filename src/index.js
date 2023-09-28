@@ -1,5 +1,12 @@
 const fs = require('fs');
 const https = require('https');
+const express = require('express');
+
+const proxyRouter = require('./routes/proxy');
+
+const app = express();
+
+app.use('/app', proxyRouter);
 
 const options = {
   key: fs.readFileSync('../ssl/key.pem'),

@@ -32,3 +32,15 @@ function getServer() {
   currentIndex = (currentIndex + 1) % servers.length;
   return servers[currentIndex];
 }
+
+// Proxy requests
+router.all('*', (req, res) => {
+  // Get next target server
+  const target = getServer();
+  proxyOptions.target = `http://${target.host}:${target.port}`;
+
+  // forward request
+  proxy(proxyOptions)(req, res);
+});
+
+module.exports = router;
