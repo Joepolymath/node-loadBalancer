@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "proxy": "node src/index.js",
+    "proxy": "nodemon src/index.js",
     "server1": "node src/server.js",
     "server2": "node src/server2.js",
     "server3": "node src/server3.js"
@@ -21,5 +21,8 @@
     "http-proxy-middleware": "^2.0.6",
     "https": "^1.0.0",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

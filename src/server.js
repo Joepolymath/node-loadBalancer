@@ -14,6 +14,11 @@ app.get('/app', (req, res) => {
   res.send(`Hello World! Host: ${process.env.HOSTNAME}`);
 });
 
+// The proxy checks this endpoint to validate server health
+app.get('/health', (req, res) => {
+  res.status(200).send('Server is Hale and Hearty 🤪');
+});
+
 app.listen(PORT, () => {
   console.log(`Backend server running on port: ${PORT}`);
 });

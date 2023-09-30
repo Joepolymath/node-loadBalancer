@@ -1,7 +1,9 @@
 const express = require('express');
 const axios = require('axios');
+const net = require('net');
 
 const { servers } = require('./proxy');
+const { checkServerTcpHealth } = require('../utils/checkTCPConn');
 
 const router = express.Router();
 
@@ -17,23 +19,35 @@ router.get('/http', async (req, res) => {
       if (response.status !== 200) {
         results.push({
           ...server,
-          status: 'failure',
+          isHealthy: false,
         });
       } else {
         results.push({
           ...server,
-          status: 'success',
+          isHealthy: true,
         });
       }
     } catch (error) {
       results.push({
         ...server,
-        status: 'failure',
+        isHealthy: false,
       });
     }
   }
 
   res.status(200).json(results);
+});
+
+router.get('/tcp', async (req, res) => {
+  const healthStatuses = servers.map((server) => {
+    return new Promise((resolve) => {
+      checkServerTcpHealth(server, (healthResponse) => {
+        resolve(healthResponse);
+      });
+    });
+  });
+  const data = await Promise.all(healthStatuses);
+  res.status(200).json(data);
 });
 
 module.exports = router;

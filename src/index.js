@@ -2,12 +2,14 @@ const fs = require('fs');
 const https = require('https');
 const express = require('express');
 const path = require('path');
+const morgan = require('morgan');
 
 const { router: proxyRouter } = require('./routes/proxy');
 const healthRouter = require('./routes/health');
 
 const app = express();
 
+app.use(morgan('dev'));
 app.use('/app', proxyRouter);
 app.use('/health', healthRouter);
 
