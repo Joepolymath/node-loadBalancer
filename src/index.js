@@ -3,11 +3,13 @@ const https = require('https');
 const express = require('express');
 const path = require('path');
 
-const proxyRouter = require('./routes/proxy');
+const { router: proxyRouter } = require('./routes/proxy');
+const healthRouter = require('./routes/health');
 
 const app = express();
 
 app.use('/app', proxyRouter);
+app.use('/health', healthRouter);
 
 const options = {
   key: fs.readFileSync(path.join(__dirname, 'ssl/key.pem')),

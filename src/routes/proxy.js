@@ -5,16 +5,19 @@ const router = express.Router();
 
 const servers = [
   {
+    id: 1,
     host: 'localhost',
     port: 3002,
     weight: 1,
   },
   {
+    id: 2,
     host: 'localhost',
     port: 3003,
     weight: 1,
   },
   {
+    id: 3,
     host: 'localhost',
     port: 3004,
     weight: 1,
@@ -53,4 +56,4 @@ router.all('*', (req, res) => {
   proxy.createProxyMiddleware(proxyOptions)(req, res);
 });
 
-module.exports = router;
+module.exports = { router, servers };
