@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "proxy": "node src/index.js",
+    "server1": "node src/server.js",
+    "server2": "node src/server2.js",
+    "server3": "node src/server3.js"
   },
   "keywords": [],
   "author": "",
@@ -12,8 +15,10 @@
   "dependencies": {
     "cluster": "^0.7.7",
     "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "http-proxy-middleware": "^2.0.6",
-    "https": "^1.0.0"
+    "https": "^1.0.0",
+    "morgan": "^1.10.0"
   }
 }

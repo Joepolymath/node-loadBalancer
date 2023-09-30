@@ -6,7 +6,17 @@ const router = express.Router();
 const servers = [
   {
     host: 'localhost',
-    port: 3000,
+    port: 3002,
+    weight: 1,
+  },
+  {
+    host: 'localhost',
+    port: 3003,
+    weight: 1,
+  },
+  {
+    host: 'localhost',
+    port: 3004,
     weight: 1,
   },
   // I can add more servers here if I want.
@@ -40,7 +50,7 @@ router.all('*', (req, res) => {
   proxyOptions.target = `http://${target.host}:${target.port}`;
 
   // forward request
-  proxy(proxyOptions)(req, res);
+  proxy.createProxyMiddleware(proxyOptions)(req, res);
 });
 
 module.exports = router;
