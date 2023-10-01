@@ -1,7 +1,7 @@
 const express = require('express');
 const proxy = require('http-proxy-middleware');
 
-const healthyServers = require('../../healthLogs/serverHealth.json');
+const healthyServers = require('../../healthLogs/healthyServers.json');
 
 const router = express.Router();
 

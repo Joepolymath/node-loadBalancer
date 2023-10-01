@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const colors = require('colors');
+const os = require('os');
 
 const servers = require('../resources/servers');
 const { checkServerTcpHealth } = require('../utils/checkTCPConn');
@@ -19,8 +20,8 @@ const saveHealthyServers = async () => {
   const data = await Promise.all(healthStatuses);
   const healthyServers = data.filter((server) => server.isHealthy);
   fs.writeFile(
-    path.join(HEALTHLOGS_DIRECTORY, 'serverHealth.json'),
-    JSON.stringify(healthyServers),
+    path.join(HEALTHLOGS_DIRECTORY, 'healthyServers.json'),
+    JSON.stringify(healthyServers, null, 2),
     (err) => {
       if (err) {
         logger.error('UNABLE TO SAVE HEALTH DETAILS'.red);

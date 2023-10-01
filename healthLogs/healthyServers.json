@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "host": "localhost",
+    "port": 3002,
+    "weight": 1,
+    "isHealthy": true
+  },
+  {
+    "id": 2,
+    "host": "localhost",
+    "port": 3003,
+    "weight": 1,
+    "isHealthy": true
+  },
+  {
+    "id": 3,
+    "host": "localhost",
+    "port": 3004,
+    "weight": 1,
+    "isHealthy": true
+  }
+]
