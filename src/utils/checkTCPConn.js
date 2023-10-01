@@ -1,10 +1,11 @@
 const net = require('net');
+const logger = require('../configs/logger');
 
 async function checkServerTcpHealth(server, callback) {
   const client = new net.Socket();
 
   client.connect(server.port, server.host, () => {
-    console.log(`Server ${server.host}:${server.port} is healthy`);
+    logger.info(`Server ${server.host}:${server.port} is healthy`);
     client.end();
     callback({
       ...server,
@@ -13,7 +14,7 @@ async function checkServerTcpHealth(server, callback) {
   });
 
   client.on('error', (err) => {
-    console.error(
+    logger.warn(
       `Server ${server.host}:${server.port} is not healthy: ${err.message}`
     );
     callback({

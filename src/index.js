@@ -3,9 +3,13 @@ const https = require('https');
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
+const colors = require('colors');
 
+const { healthCheckWithCron } = require('./helpers/scheduler');
 const { router: proxyRouter } = require('./routes/proxy');
 const healthRouter = require('./routes/health');
+const { saveHealthyServers } = require('./helpers/getHealthyServers');
+const logger = require('./configs/logger');
 
 const app = express();
 
@@ -21,5 +25,8 @@ const options = {
 const PORT = 443;
 
 https.createServer(options, app).listen(PORT, () => {
-  console.info('Load Balancer Started on port:', PORT);
+  logger.info(`Load Balancer Started on port: ${PORT}`.yellow.bold);
+  saveHealthyServers();
+  // Starting health check cron job
+  healthCheckWithCron().start();
 });

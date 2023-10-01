@@ -1,0 +1,3 @@
+{
+  "ignore": ["./healthLogs/serverHealth.json"]
+}

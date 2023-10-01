@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const net = require('net');
 
-const { servers } = require('./proxy');
+const servers = require('../resources/servers');
 const { checkServerTcpHealth } = require('../utils/checkTCPConn');
 
 const router = express.Router();
