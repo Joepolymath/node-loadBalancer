@@ -9,7 +9,11 @@
     "server2": "node src/server2.js",
     "server3": "node src/server3.js",
     "prod:proxy": "chmod +x ./initHealth.sh && ./initHealth.sh && node src/index",
-    "clean:logs": "echo \"\" > ./logs/combined.log && echo \"\" > ./logs/error.log"
+    "clean:logs": "echo \"\" > ./logs/combined.log && echo \"\" > ./logs/error.log",
+    "bproxy": "bun src/index.js",
+    "bserver1": "bun src/server.js",
+    "bserver2": "bun src/server2.js",
+    "bserver3": "bun src/server3.js"
   },
   "keywords": [],
   "author": "",
