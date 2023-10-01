@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const colors = require('colors');
-const os = require('os');
 
 const servers = require('../resources/servers');
 const { checkServerTcpHealth } = require('../utils/checkTCPConn');

@@ -31,4 +31,4 @@ https.createServer(options, app).listen(PORT, () => {
   saveHealthyServers();
   // Starting health check cron job
   healthCheckWithCron().start();
-});
+}).timeout = 30000;
