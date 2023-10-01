@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const colors = require('colors');
+const figlet = require('figlet');
 
 const { healthCheckWithCron } = require('./helpers/scheduler');
 const { router: proxyRouter } = require('./routes/proxy');
@@ -26,6 +27,7 @@ const PORT = 443;
 
 https.createServer(options, app).listen(PORT, () => {
   logger.info(`Load Balancer Started on port: ${PORT}`.yellow.bold);
+  console.log(figlet.textSync('Node Load Balancer'));
   saveHealthyServers();
   // Starting health check cron job
   healthCheckWithCron().start();

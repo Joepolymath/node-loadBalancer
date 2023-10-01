@@ -23,6 +23,9 @@ dependencies:
   express:
     specifier: ^4.18.2
     version: 4.18.2
+  figlet:
+    specifier: ^1.6.0
+    version: 1.6.0
   http-proxy-middleware:
     specifier: ^2.0.6
     version: 2.0.6
@@ -445,6 +448,12 @@ packages:
 
   /fecha@4.2.3:
     resolution: {integrity: sha512-OP2IUU6HeYKJi3i0z4A19kHMQoLVs4Hc+DPqqxI2h/DPZHTm/vjsfC6P0b4jCMy14XizLBqvndQ+UilD7707Jw==}
+    dev: false
+
+  /figlet@1.6.0:
+    resolution: {integrity: sha512-31EQGhCEITv6+hi2ORRPyn3bulaV9Fl4xOdR169cBzH/n1UqcxsiSB/noo6SJdD7Kfb1Ljit+IgR1USvF/XbdA==}
+    engines: {node: '>= 0.4.0'}
+    hasBin: true
     dev: false
 
   /fill-range@7.0.1:

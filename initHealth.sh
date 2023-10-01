@@ -1,0 +1,18 @@
+#!/bin/bash
+echo "Initializing healthy servers log file"
+echo "*"
+echo "**"
+echo "***"
+echo "****"
+echo "*****"
+echo "******"
+echo "*******"
+echo "[]" > ./healthLogs/healthyServers.json
+echo "Stating Load Balancer"
+echo "*******"
+echo "******"
+echo "*****"
+echo "****"
+echo "***"
+echo "**"
+echo "*"
